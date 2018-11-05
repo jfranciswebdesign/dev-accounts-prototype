@@ -6,7 +6,7 @@
 
   <div class="govuk-width-container">
     {% include "includes/phase_banner_beta.html" %}
-    <!--{% include "includes/chs-user-menu-logged-in.html" %}-->
+    {% include "includes/chs-user-menu-logged-in.html" %}
 
     {{ govukBackLink({
     text: "Back",
@@ -20,7 +20,7 @@
         Balance sheet
       </h1>
 
-      <!--<p class="warning-note warning-note-large">You only need to enter items included in your prepared accounts.</p>-->
+      <p class="warning-note warning-note-large">You only need to enter items included in your prepared accounts.</p>
 
       <div class="govuk-grid-row" id="accounts-header">
 
@@ -70,7 +70,7 @@
         <h2 class="govuk-heading-m">Fixed assets</h2>
 
         <!--Start intangible assets-->
-        <div class="govuk-grid-row">
+        <div class="govuk-grid-row" style="display:none;">
           <div class="govuk-grid-column-one-half">
             <!--<details> <summary><span class="summary">-->Intangible assets
             <!--</span> </summary> <div class="panel panel-border-narrow"> <p>The value after depreciation of your company's assets that are not physical. Examples include:</p> <ul class="govuk-list"> <li>patents</li> <li>trademarks</li> <li>copyrights</li>
@@ -133,8 +133,8 @@
         </div>
         <!--End tangible assets-->
 
-        <!--Start investments (fixed assets) -->
-        <div class="govuk-grid-row">
+        <!--Start investments (Investments) -->
+        <div class="govuk-grid-row" style="display:none;">
           <div class="govuk-grid-column-one-half">
             <!--<details> <summary><span class="summary">-->Investments
             <!--</summary> <div class="panel panel-border-narrow"> <p>Fixed asset investment refers to any investment made this reporting period in assets used to generate income that will be held for more than one year. Examples include:</p> <ul
@@ -275,7 +275,7 @@
       <!--End cash at bank and in hand-->
 
       <!--Start investments (current assets)-->
-      <div class="govuk-grid-row">
+      <div class="govuk-grid-row" style="display:none;">
         <div class="govuk-grid-column-one-half">
           <!--<details> <summary><span class="summary">-->Investments
           <!--</summary> <div class="panel panel-border-narrow"> <p>A resource held by the company for investment rather than trading purposes, and is likely to be sold soon.</p> </div> </details>-->
@@ -641,7 +641,7 @@
       <!--End share premium account-->
 
       <!--Start revaluation reserve-->
-      <div class="govuk-grid-row">
+      <div class="govuk-grid-row" style="display:none;">
         <div class="govuk-grid-column-one-half">
           <!-- <details> <summary><span class="summary">-->Revaluation reserve
           <!--</span></summary> <div class="panel panel-border-narrow"> <p>The change in asset values after revaluation when compared to their previous balance sheet values.</p> </div> </details>-->
@@ -762,9 +762,7 @@
     }) }}
     </form>
 
-    <p>
-      <a href="javascript:void(0)" class="govuk-link">Sign out</a>
-    </p>
+    <!-- <p> <a href="javascript:void(0)" class="govuk-link">Sign out</a> </p>-->
 
   </main>
 </div>

@@ -6,7 +6,7 @@
 
   <div class="govuk-width-container">
     {% include "includes/phase_banner_beta.html" %}
-    {% include "includes/chs-user-menu-logged-in.html" %}
+    <!--{% include "includes/chs-user-menu-logged-in.html" %}-->
 
     {{ govukBackLink({
     text: "Back",
@@ -50,7 +50,7 @@
 
           <!-- For time reasons, currently both radio button answers ON THIS VERSION OF THE PAGE send you to Start page-->
 
-          <form action="/accounts/accounts-start-page-small-full-mvp" method="get" class="form">
+          <form action="/chs/chs-start-page-cics" method="get" class="form">
             {{ govukRadios({
                 idPrefix: "smallfullcriteria",
                 name: "smallfullcriteria",

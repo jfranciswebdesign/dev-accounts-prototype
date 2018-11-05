@@ -53,19 +53,21 @@ module.exports = function ( router ) {
 	} );
 
 	//Choose CICS or full journey
-	//	router.get( '/accounts/accounts-start-page-small-full-mvp', function ( req, res ) {
-	//	var cicssmallfullroute1 = req.query.cicssmallfullroute1;
-	//	if ( cicssmallfullroute1 == "cic" ) {
-	//		res.redirect( "/gov-uk/gov-uk-start-page-cics" );
-	//		} else {
-	//			res.render( 'accounts/accounts-start-page-small-full-mvp' );
-	//		}
-	//	} );
+	router.get( '/chs/chs-start-page-cics', function ( req, res ) {
+		var smallfullcriteria = req.query.smallfullcriteria;
+		if ( smallfullcriteria == "No" ) {
+			res.redirect( "/chs/chs-other-ways-to-file" );
+		} else if ( smallfullcriteria == "Other" ) {
+			res.redirect( "/chs/chs-choose-accounts-small-full-radio" );
+		} else {
+			res.render( 'chs/chs-start-page-cics' );
+		}
+	} );
 
-	//	router.post( '/accounts/accounts-start-page-small-full-mvp', function ( req, res ) {
-	//		req.session.cicssmallfullroute1 = null;
-	//		if ( req.body.cicssmallfullroute1 == "sf" ) {
-	//			req.session.cicssmallfullroute1 = "sf";
+	//router.post( '/accounts/accounts-start-page-small-full-mvp', function ( req, res ) {
+	//	req.session.cicssmallfullroute1 = null;
+	//	if ( req.body.cicssmallfullroute1 == "sf" ) {
+	//		req.session.cicssmallfullroute1 = "sf";
 	//		} else {
 	//			req.session.cicssmallfullroute1 = "cic";
 	//		}
@@ -580,37 +582,25 @@ module.exports = function ( router ) {
 
 	//Choose accounts type
 
-	router.get( '/cics/cics-criteria-info', function ( req, res ) {
+	router.get( '/chs/chs-choose-small-full-or-other', function ( req, res ) {
 		var chooseAccountsRadio = req.query.chooseAccountsRadio;
 		if ( chooseAccountsRadio == "micros" ) {
 			res.redirect( "/accounts/accounts-start-page-micros" );
 		} else if ( chooseAccountsRadio == "abridged" ) {
 			res.redirect( "/chs/chs-choose-abridged-or-other-r1" );
 		} else if ( chooseAccountsRadio == "full" ) {
-			res.redirect( "/cics/cics-criteria-info" );
+			res.redirect( "/chs/chs-choose-small-full-or-other" );
 		} else if ( chooseAccountsRadio == "dormant" ) {
 			res.redirect( "/accounts/accounts-start-page-dormant" );
 		} else {
-			res.render( 'cics/cics-criteria-info' );
+			res.render( 'chs/chs-choose-small-full-or-other' );
 		}
 	} );
 
 
-	//Tangible assets chooser
-	router.get( '/small-full/small-full-tangible-assets-note', function ( req, res ) {
-		var tangibleType = req.query.tangibleType;
-		if ( tangibleType.length == 1 ) {
-			res.redirect( "/small-full/small-full-tangible-assets-note-1" );
-		} else if ( tangibleType.length == 2 ) {
-			res.redirect( "/small-full/small-full-tangible-assets-note-2" );
-		} else if ( tangibleType.length == 3 ) {
-			res.redirect( "/small-full/small-full-tangible-assets-note-3" );
-		} else if ( tangibleType.length == 4 ) {
-			res.redirect( "/small-full/small-full-tangible-assets-note-4" );
-		} else {
-			res.render( 'small-full/small-full-tangible-assets-note' );
-		}
-	} );
+
+
+
 
 
 }

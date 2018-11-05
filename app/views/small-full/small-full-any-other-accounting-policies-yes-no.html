@@ -6,7 +6,7 @@
 
   <div class="govuk-width-container">
     {% include "includes/phase_banner_beta.html" %}
-    <!--{% include "includes/chs-user-menu-logged-in.html" %}-->
+    {% include "includes/chs-user-menu-logged-in.html" %}
 
     {{ govukBackLink({
       text: "Back",
@@ -20,7 +20,7 @@
       <div class="govuk-grid-row">
         <div class="govuk-grid-column-two-thirds">
 
-          <form action="/small-full/small-full-intangible-assets-note" method="get" class="form">
+          <form action="/small-full/small-full-tangible-assets-note" method="get" class="form">
 
             <h1 class="govuk-heading-l">
               Do your prepared accounts include any other accounting policies?</h1>
@@ -40,7 +40,7 @@
             {% endset -%}
 
             {{ govukRadios({
-                classes: "govuk-radios",
+                classes: "govuk-radios--inline",
                 idPrefix: "anyotheraccountingpolicies",
                 name: "anyotheraccountingpolicies",
                 fieldset: {
@@ -74,9 +74,7 @@
             }) }}
           </form>
 
-          <p>
-            <a href="javascript:void(0)" class="govuk-link">Sign out</a>
-          </p>
+          <!-- <p> <a href="javascript:void(0)" class="govuk-link">Sign out</a> </p>-->
 
         </div>
         <!--govuk-grid-row-->
