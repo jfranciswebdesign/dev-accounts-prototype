@@ -582,18 +582,18 @@ module.exports = function ( router ) {
 
 	//Choose accounts type
 
-	router.get( '/chs/chs-choose-small-full-or-other', function ( req, res ) {
+	router.get( '/accounts/file-full-accounts', function ( req, res ) {
 		var chooseAccountsRadio = req.query.chooseAccountsRadio;
 		if ( chooseAccountsRadio == "micros" ) {
 			res.redirect( "/accounts/accounts-start-page-micros" );
 		} else if ( chooseAccountsRadio == "abridged" ) {
 			res.redirect( "/chs/chs-choose-abridged-or-other-r1" );
 		} else if ( chooseAccountsRadio == "full" ) {
-			res.redirect( "/chs/chs-choose-small-full-or-other" );
+			res.redirect( "/accounts/file-full-accounts" );
 		} else if ( chooseAccountsRadio == "dormant" ) {
 			res.redirect( "/accounts/accounts-start-page-dormant" );
 		} else {
-			res.render( 'chs/chs-choose-small-full-or-other' );
+			res.render( 'accounts/file-full-accounts' );
 		}
 	} );
 
