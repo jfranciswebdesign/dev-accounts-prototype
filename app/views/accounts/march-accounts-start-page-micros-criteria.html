@@ -1,0 +1,50 @@
+{% extends "layout.html" %}
+{% block pageTitle %}
+  You’re about to start filing your accounts
+{% endblock %}
+{% block main %}
+
+  <div class="govuk-width-container">
+    {% include "includes/phase_banner_beta.html" %}
+    <!--{% include "includes/chs-user-menu-logged-in.html" %}-->
+
+    {{ govukBackLink({
+    text: "Back",
+    href: "javascript:history.back()"
+  }) }}
+
+    <main class="govuk-main-wrapper" id="main-content" role="main">
+
+      <div class="govuk-grid-row">
+        <div class="govuk-grid-column-two-thirds">
+          <form action="/accounts/march-accounts-start-page-micros" method="get" class="form">
+
+            <header>
+              <h1 id="page-header" class="govuk-heading-l">File micro-entity accounts with Companies House
+              </h1>
+            </header>
+            <h2 class="govuk-heading-m">Criteria</h2>
+
+            <div class="panel panel-border-wide">
+              <p>Check your prepared accounts to see if you meet the criteria.</p>
+            </div>
+
+            <ul class="govuk-list govuk-list--bullet">
+              <li>Turnover is no more than £632,000</li>
+              <li>Balance sheet total is no more than £316,000</li>
+              <li>Average number of employees is no more than 10</li>
+            </ul>
+            {{ govukButton({
+              text: "Continue"
+            }) }}
+
+          </form>
+        </div>
+        <!--govuk-grid-row-->
+      </div>
+      <!--govuk-grid-column-two-thirds-->
+    </main>
+  </div>
+  <!---govuk-width-container-->
+
+{% endblock %}

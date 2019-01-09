@@ -1,0 +1,77 @@
+{% extends "layout.html" %}
+{% block pageTitle %}
+  Which type of accounts have you prepared?
+{% endblock %}
+{% block main %}
+
+  <div class="govuk-width-container">
+    {% include "includes/phase_banner_beta.html" %}
+
+    {{ govukBackLink({
+    text: "Back",
+    href: "javascript:history.back()"
+  }) }}
+
+    {% include 'includes/error.html' %}
+
+    <main class="govuk-main-wrapper" id="main-content" role="main">
+
+      <div class="govuk-grid-row">
+        <div class="govuk-grid-column-two-thirds">
+
+          <h1 class="govuk-heading-l">Which type of accounts have you prepared?</h1>
+          <p class="lede">If you’re not sure, you may want to ask an accountant.</p>
+
+          <form action="/accounts/march-file-full-accounts" method="get" class="form">
+
+            {{ govukRadios({
+                idPrefix: "chooseAccountsRadio",
+                name: "chooseAccountsRadio",
+                fieldset: {
+                  legend: {
+                    text: "Which type of accounts have you prepared?",
+                    isPageHeading: false,
+                    classes: "govuk-visually-hidden"
+                  }
+                },
+                items: [
+                  {
+                    value: "micros",
+                    text: "Micro-entity accounts "
+                  },
+                  {
+                    value: "abridged",
+                    text: "Abridged accounts "
+                  },
+                  {
+                    value: "full",
+                    text: "Full accounts "
+                  },
+                  {
+                    value: "dormant",
+                    text: "Dormant company accounts "
+                  }
+                ]
+              }) }}
+
+            {{ govukButton({
+                text: "Save and continue"
+              }) }}
+
+          </form>
+          <!--<p>Are you filing for a <a href="/gov-uk/gov-uk-start-page-cics">Community Interest Company</a>?</p>-->
+
+          <p>Looking to file
+            <a href="javascript:void(0)">abbreviated accounts</a>?
+          </p>
+
+        </div>
+        <!--govuk-grid-row-->
+      </div>
+      <!--govuk-grid-column-two-thirds-->
+
+    </main>
+  </div>
+  <!---govuk-width-container-->
+
+{% endblock %}

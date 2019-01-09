@@ -597,10 +597,42 @@ module.exports = function ( router ) {
 		}
 	} );
 
+	///// March 2019 Accounts chooser anyotheraccountingpolicies
 
+	router.get( '/chs/march-chs-choose-accounts-small-full-radio', function ( req, res ) {
+		var corporationTax = req.query.corporationTax;
+		if ( corporationTax == "yes" ) {
+			res.redirect( "https://www.gov.uk/file-your-company-accounts-and-tax-return" );
+		} else {
+			res.render( 'chs/march-chs-choose-accounts-small-full-radio' );
+		}
+	} );
 
+	router.get( '/accounts/march-file-full-accounts', function ( req, res ) {
+		var chooseAccountsRadio = req.query.chooseAccountsRadio;
+		if ( chooseAccountsRadio == "micros" ) {
+			res.redirect( "/accounts/march-accounts-start-page-micros-criteria" );
+		} else if ( chooseAccountsRadio == "abridged" ) {
+			res.redirect( "/chs/chs-choose-abridged-or-other-r1" );
+		} else if ( chooseAccountsRadio == "full" ) {
+			res.redirect( "/chs/march-chs-choose-small-full-or-other" );
+		} else if ( chooseAccountsRadio == "dormant" ) {
+			res.redirect( "/accounts/march-accounts-start-page-dormant-criteria" );
+		} else {
+			res.render( 'accounts/file-full-accounts' );
+		}
+	} );
 
-
+	router.get( '/accounts/march-accounts-start-page-small-full', function ( req, res ) {
+		var smallfullcriteria = req.query.smallfullcriteria;
+		if ( smallfullcriteria == "No" ) {
+			res.redirect( "/chs/chs-other-ways-to-file" );
+		} else if ( smallfullcriteria == "Other" ) {
+			res.redirect( "/chs/march-chs-choose-accounts-small-full-radio" );
+		} else {
+			res.render( 'accounts/march-accounts-start-page-small-full' );
+		}
+	} );
 
 
 }

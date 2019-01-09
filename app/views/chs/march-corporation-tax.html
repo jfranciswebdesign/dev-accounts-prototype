@@ -1,0 +1,63 @@
+{% extends "layout.html" %}
+{% block pageTitle %}
+  Do you also want to file your corporation tax with HMRC now?
+{% endblock %}
+{% block main %}
+
+  <div class="govuk-width-container">
+    {% include "includes/phase_banner_beta.html" %}
+
+    {{ govukBackLink({
+    text: "Back",
+    href: "javascript:history.back()"
+  }) }}
+
+    {% include 'includes/error.html' %}
+
+    <main class="govuk-main-wrapper" id="main-content" role="main">
+
+      <div class="govuk-grid-row">
+        <div class="govuk-grid-column-two-thirds">
+
+          <form action="/chs/march-chs-choose-accounts-small-full-radio" method="get" class="form">
+
+            {{ govukRadios({
+              classes: "govuk-radios--inline",
+              idPrefix: "corporationTax",
+              name: "corporationTax",
+              fieldset: {
+                legend: {
+                  text: "Do you also want to file your corporation tax with HMRC now?",
+                  isPageHeading: true,
+                  classes: "govuk-fieldset__legend--l",
+                  id: "main-content"
+                }
+              },
+              items: [
+                {
+                  value: "yes",
+                  text: "Yes"
+                },
+                {
+                  value: "no",
+                  text: "No"
+                }
+              ]
+            }) }}
+
+            {{ govukButton({
+              text: "Save and continue"
+            }) }}
+
+          </form>
+
+        </div>
+        <!--govuk-grid-row-->
+      </div>
+      <!--govuk-grid-column-two-thirds-->
+
+    </main>
+  </div>
+  <!---govuk-width-container-->
+
+{% endblock %}

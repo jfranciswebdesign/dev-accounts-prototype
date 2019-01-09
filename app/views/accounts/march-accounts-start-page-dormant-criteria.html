@@ -1,0 +1,44 @@
+{% extends "layout.html" %}
+{% block pageTitle %}
+  You’re about to start filing your accounts
+{% endblock %}
+{% block main %}
+
+  <div class="govuk-width-container">
+    {% include "includes/phase_banner_beta.html" %}
+    <!--{% include "includes/chs-user-menu-logged-in.html" %}-->
+
+    {{ govukBackLink({
+    text: "Back",
+    href: "javascript:history.back()"
+  }) }}
+
+    <main class="govuk-main-wrapper" id="main-content" role="main">
+
+      <div class="govuk-grid-row">
+        <div class="govuk-grid-column-two-thirds">
+          <form action="/accounts/march-accounts-start-page-dormant" method="get" class="form">
+
+            <header>
+              <h1 id="page-header" class="govuk-heading-l">File dormant accounts with Companies House</h1>
+            </header>
+            <h2 class="govuk-heading-m">Criteria</h2>
+
+            <div class="panel panel-border-wide">
+              <p>These accounts are suitable for companies limited by shares or by guarantee that have never traded.</p>
+            </div>
+
+            {{ govukButton({
+                        text: "Continue"
+                      }) }}
+
+          </form>
+        </div>
+        <!--govuk-grid-row-->
+      </div>
+      <!--govuk-grid-column-two-thirds-->
+    </main>
+  </div>
+  <!---govuk-width-container-->
+
+{% endblock %}
