@@ -315,7 +315,7 @@ module.exports = function ( router ) {
 	router.get( '/small-full/small-full-employees-note', function ( req, res ) {
 		var employeesnoteyesno = req.query.employeesnoteyesno;
 		if ( employeesnoteyesno == "no" ) {
-			res.redirect( "/small-full/small-full-fixed-assets-yes-no" );
+			res.redirect( "/small-full/small-full-check-before-you-submit" );
 		} else {
 			res.render( 'small-full/small-full-employees-note' );
 		}
