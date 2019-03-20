@@ -53,14 +53,12 @@ module.exports = function ( router ) {
 	} );
 
 	//Choose CICS or full journey
-	router.get( '/chs/chs-start-page-cics', function ( req, res ) {
+	router.get( '/cics/cics-about-service', function ( req, res ) {
 		var smallfullcriteria = req.query.smallfullcriteria;
 		if ( smallfullcriteria == "No" ) {
-			res.redirect( "/chs/chs-other-ways-to-file" );
-		} else if ( smallfullcriteria == "Other" ) {
-			res.redirect( "/chs/chs-choose-accounts-small-full-radio" );
+			res.redirect( "/cics/cics-accounts-type" );
 		} else {
-			res.render( 'chs/chs-start-page-cics' );
+			res.render( 'cics/cics-about-service' );
 		}
 	} );
 
@@ -582,20 +580,20 @@ module.exports = function ( router ) {
 
 	//Choose accounts type
 
-	router.get( '/accounts/file-full-accounts', function ( req, res ) {
-		var chooseAccountsRadio = req.query.chooseAccountsRadio;
-		if ( chooseAccountsRadio == "micros" ) {
-			res.redirect( "/accounts/accounts-start-page-micros" );
-		} else if ( chooseAccountsRadio == "abridged" ) {
-			res.redirect( "/chs/chs-choose-abridged-or-other-r1" );
-		} else if ( chooseAccountsRadio == "full" ) {
-			res.redirect( "/accounts/file-full-accounts" );
-		} else if ( chooseAccountsRadio == "dormant" ) {
-			res.redirect( "/accounts/accounts-start-page-dormant" );
-		} else {
-			res.render( 'accounts/file-full-accounts' );
-		}
-	} );
+	//	router.get( '/accounts/file-full-accounts', function ( req, res ) {
+	//		var chooseAccountsRadio = req.query.chooseAccountsRadio;
+	//		if ( chooseAccountsRadio == "micros" ) {
+	//			res.redirect( "/accounts/accounts-start-page-micros" );
+	//		} else if ( chooseAccountsRadio == "abridged" ) {
+	//		res.redirect( "/chs/chs-choose-abridged-or-other-r1" );
+	//	} else if ( chooseAccountsRadio == "full" ) {
+	//		res.redirect( "/accounts/file-full-accounts" );
+	//	} else if ( chooseAccountsRadio == "dormant" ) {
+	//			res.redirect( "/accounts/accounts-start-page-dormant" );
+	//	} else {
+	//		res.render( 'accounts/file-full-accounts' );
+	//		}
+	//	} );
 
 	///// March 2019 Accounts chooser anyotheraccountingpolicies
 
@@ -608,31 +606,34 @@ module.exports = function ( router ) {
 		}
 	} );
 
-	router.get( '/accounts/march-file-full-accounts', function ( req, res ) {
+	//CICS choose accounts
+	router.get( '/cics/cics-criteria-mvp', function ( req, res ) {
 		var chooseAccountsRadio = req.query.chooseAccountsRadio;
 		if ( chooseAccountsRadio == "micros" ) {
-			res.redirect( "/accounts/march-accounts-start-page-micros-criteria" );
+			res.redirect( "/cics/cics-accounts-type" );
 		} else if ( chooseAccountsRadio == "abridged" ) {
-			res.redirect( "/chs/chs-choose-abridged-or-other-r1" );
+			res.redirect( "/cics/cics-accounts-type" );
 		} else if ( chooseAccountsRadio == "full" ) {
-			res.redirect( "/chs/march-chs-choose-small-full-or-other" );
+			res.redirect( "/cics/cics-criteria-mvp" );
 		} else if ( chooseAccountsRadio == "dormant" ) {
-			res.redirect( "/accounts/march-accounts-start-page-dormant-criteria" );
+			res.redirect( "/cics/cics-accounts-type" );
 		} else {
-			res.render( 'accounts/file-full-accounts' );
+			res.render( 'cics/cics-criteria-mvp' );
 		}
 	} );
 
-	router.get( '/accounts/march-accounts-start-page-small-full', function ( req, res ) {
-		var smallfullcriteria = req.query.smallfullcriteria;
-		if ( smallfullcriteria == "No" ) {
-			res.redirect( "/chs/chs-other-ways-to-file" );
-		} else if ( smallfullcriteria == "Other" ) {
-			res.redirect( "/chs/march-chs-choose-accounts-small-full-radio" );
-		} else {
-			res.render( 'accounts/march-accounts-start-page-small-full' );
-		}
-	} );
+
+
+	//router.get( '/accounts/march-accounts-start-page-small-full', function ( req, res ) {
+	//	var smallfullcriteria = req.query.smallfullcriteria;
+	//	if ( smallfullcriteria == "No" ) {
+	//		res.redirect( "/chs/chs-other-ways-to-file" );
+	//	} else if ( smallfullcriteria == "Other" ) {
+	//		res.redirect( "/chs/march-chs-choose-accounts-small-full-radio" );
+	//	} else {
+	//		res.render( 'accounts/march-accounts-start-page-small-full' );
+	//	}
+	//	} );
 
 
 }

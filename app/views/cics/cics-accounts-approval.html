@@ -18,7 +18,7 @@
       <div class="govuk-grid-row">
         <div class="govuk-grid-column-two-thirds">
 
-          <form action="/cics/cics-confirmation" method="get" class="form">
+          <form action="/accounts/accounts-payment" method="get" class="form">
 
             {% set myHTML %}
             <p class="govuk-hint">This is the date the accounts were approved by the director.<br/>
@@ -49,18 +49,7 @@
                   },
                   hint: {
                       html: myHTML
-                  },
-                  items: [
-                    {
-                      name: "day"
-                    },
-                    {
-                      name: "month"
-                    },
-                    {
-                      name: "year"
-                    }
-                  ]
+                  }
                 }) }}
 
             <div class="govuk-inset-text">
