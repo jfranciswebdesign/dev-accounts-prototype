@@ -53,12 +53,12 @@ module.exports = function ( router ) {
 	} );
 
 	//Choose CICS or full journey
-	router.get( '/cics/cics-about-service', function ( req, res ) {
+	router.get( '/cics/cics-company-number', function ( req, res ) {
 		var smallfullcriteria = req.query.smallfullcriteria;
 		if ( smallfullcriteria == "No" ) {
 			res.redirect( "/cics/cics-accounts-type" );
 		} else {
-			res.render( 'cics/cics-about-service' );
+			res.render( 'cics/cics-company-number' );
 		}
 	} );
 
@@ -614,7 +614,7 @@ module.exports = function ( router ) {
 		} else if ( chooseAccountsRadio == "abridged" ) {
 			res.redirect( "/cics/cics-accounts-type" );
 		} else if ( chooseAccountsRadio == "full" ) {
-			res.redirect( "/cics/cics-criteria-mvp" );
+			res.redirect( "/cics/file-full-accounts" );
 		} else if ( chooseAccountsRadio == "dormant" ) {
 			res.redirect( "/cics/cics-accounts-type" );
 		} else {
