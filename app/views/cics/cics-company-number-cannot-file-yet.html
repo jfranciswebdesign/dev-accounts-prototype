@@ -1,0 +1,83 @@
+{% extends "layout.html" %}
+{% block pageTitle %}
+  This CIC’s annual accounts are not due yet
+{% endblock %}
+{% block main %}
+
+  <div class="govuk-width-container">
+    {% include "includes/phase_banner_beta.html" %}
+    {{ govukBackLink({
+    text: "Back",
+    href: "javascript:history.back()"
+  }) }}
+
+    <main class="govuk-main-wrapper" id="main-content" role="main">
+      <form action="/chs/chs-login-page-cics-via-number" method="GET">
+
+        <div class="govuk-grid-row">
+          <div class="govuk-grid-column-two-thirds">
+
+            <h1 class="govuk-heading-l">This CIC’s annual accounts are not due yet</h1>
+
+            <p class="govuk-body govuk-!-margin-bottom-9">
+              <a href="/cics/cics-company-number">File CIC report and accounts for a different CIC</a>
+            </p>
+
+            <dl class="app-check-your-answers app-check-your-answers--short">
+              <div class="app-check-your-answers__contents">
+                <dt class="app-check-your-answers__question">
+                  Company name
+                </dt>
+                <dd class="app-check-your-answers__answer">
+                  {{ data['company-name-for-testing'] }}
+                </dd>
+              </div>
+
+              <div class="app-check-your-answers__contents">
+                <dt class="app-check-your-answers__question">
+                  Company number
+                </dt>
+                <dd class="app-check-your-answers__answer">
+                  {{ data['company-number'] }}
+                </dd>
+              </div>
+
+              <div class="app-check-your-answers__contents">
+                <dt class="app-check-your-answers__question">
+                  Registered office address
+                </dt>
+                <dd class="app-check-your-answers__answer">
+                  {{ data['company-address-for-testing'] }}
+                </dd>
+              </div>
+
+              <div class="app-check-your-answers__contents">
+                <dt class="app-check-your-answers__question">
+                  Next accounts made up to
+                </dt>
+                <dd class="app-check-your-answers__answer">
+                  {{ data['company-made-up-date-for-testing'] }}<br/>due by
+                  {{ data['company-due-by-date-for-testing'] }}
+                </dd>
+              </div>
+              <div class="app-check-your-answers__contents">
+                <dt class="app-check-your-answers__question">
+                  Last accounts made up to
+                </dt>
+                <dd class="app-check-your-answers__answer">
+                  {{ data['company-last-accounts-date-for-testing'] }}
+                </div>
+              </dl>
+
+            </form>
+
+          </div>
+          <!--govuk-grid-row-->
+        </div>
+        <!--govuk-grid-column-two-thirds-->
+
+      </main>
+    </div>
+    <!---govuk-width-container-->
+
+  {% endblock %}
