@@ -36,8 +36,8 @@ module.exports = function ( router ) {
 
 	router.get( '/cics/cics-company-number', function ( req, res ) {
 		var cicsr1 = req.query.cicsr1;
-		if ( cicsr1 == "no" ) {
-			res.redirect( "/cics/cics-criteria-not-met" );
+		if ( cicsr1 == "No" ) {
+			res.redirect( "/cics/cics-accounts-type" );
 		} else {
 			res.render( 'cics/cics-company-number' );
 		}
