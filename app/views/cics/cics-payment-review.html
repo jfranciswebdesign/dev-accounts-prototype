@@ -1,0 +1,71 @@
+{% extends "layout.html" %}
+{% set serviceName %}
+Companies House Payment Service
+{% endset%}
+{% block pageTitle %}
+  Payment review
+{% endblock %}
+{% block main %}
+
+  <div class="govuk-width-container">
+    {% include "includes/phase_banner_beta.html" %}
+    <!--{% include "includes/chs-user-menu-logged-in.html" %}-->
+
+    {{ govukBackLink({
+    text: "Back",
+    href: "javascript:history.back()"
+  }) }}
+
+    <main class="govuk-main-wrapper" id="main-content" role="main">
+
+      <div class="govuk-grid-row">
+        <div class="govuk-grid-column-two-thirds">
+
+          <form action="/accounts/accounts-payment" method="get" class="form">
+            <h1 class="govuk-heading-xl">
+              Payment review
+            </h1>
+
+            <!-- this table needs a caption - visuallyhidden for screenreaders of "payment review"-->
+            {{ govukTable({
+
+                firstCellIsHeader: true,
+                head: [
+                  {
+                    text: "Item"
+                  },
+                  {
+                    text: "Amount to pay",
+                    format: "numeric"
+
+                  }
+                ],
+                rows: [
+                  [
+                    {
+                      text: "CIC report and accounts"
+                    },
+                    {
+                      text: "£15",
+                      format: "numeric"
+
+                    }
+                  ]
+                ]
+              }) }}
+
+            {{ govukButton({
+              text: "Continue to payment"
+            }) }}
+          </form>
+
+        </div>
+        <!--govuk-grid-row-->
+      </div>
+      <!--govuk-grid-column-two-thirds-->
+
+    </main>
+  </div>
+  <!---govuk-width-container-->
+
+{% endblock %}

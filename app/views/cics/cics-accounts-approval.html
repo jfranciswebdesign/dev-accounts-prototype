@@ -18,7 +18,7 @@
       <div class="govuk-grid-row">
         <div class="govuk-grid-column-two-thirds">
 
-          <form action="/accounts/accounts-payment" method="get" class="form">
+          <form action="/cics/cics-payment-review" method="get" class="form">
 
             {% set myHTML %}
             <p class="govuk-hint">This is the date the accounts were approved by the director.<br/>
@@ -59,7 +59,7 @@
             </div>
 
             {{ govukButton({
-              text: "Save and continue to payment"
+              text: "Save and continue"
             }) }}
           </form>
 
