@@ -26,11 +26,9 @@ Companies House Payment Service
               Payment review
             </h1>
 
-            <!-- this table needs a caption - visuallyhidden for screenreaders of "payment review"-->
-            <!-- <caption class="govuk-visually-hidden">Payment review</caption>-->
-
             {{ govukTable({
-
+              caption: "Payment review",
+              captionClasses: "govuk-visually-hidden",
                 firstCellIsHeader: true,
                 head: [
                   {
