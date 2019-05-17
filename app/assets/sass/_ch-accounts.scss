@@ -885,7 +885,7 @@ img.card-image {
   &.interruption-card-paper {
     background: $govuk-link-colour url("/public/images/file-paper.png") no-repeat 90% 100%;
   }
-  @include govuk-media-query($until: tablet) {
+  @include govuk-media-query($until: desktop) {
     background-image: none !important;
   }
 
