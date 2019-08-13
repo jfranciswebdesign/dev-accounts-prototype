@@ -623,6 +623,18 @@ module.exports = function ( router ) {
 	} );
 
 
+	// (CICs) Accounts - Do your prepared accounts include an 'Profit and loss account' note?
+
+	router.get( '/small-full/small-full-profit-and-loss-account-note', function ( req, res ) {
+		var profitandlossaccountnoteyesno = req.query.profitandlossaccountnoteyesno;
+		if ( profitandlossaccountnoteyesno == "no" ) {
+			res.redirect( "https://www.google.co.uk/" );
+		} else {
+			res.render( 'small-full/small-full-profit-and-loss-account-note' );
+		}
+	} );
+
+
 
 	//router.get( '/accounts/march-accounts-start-page-small-full', function ( req, res ) {
 	//	var smallfullcriteria = req.query.smallfullcriteria;

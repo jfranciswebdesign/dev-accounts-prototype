@@ -1,86 +1,53 @@
 {% extends "layout.html" %}
-
 {% block pageTitle %}
-Profit and loss account note
-{% endblock %}
 
+  Profit and loss account note
+
+{% endblock %}
 {% block main %}
 
-<style type="text/css">
-.left-indent {margin-left:3em}
-</style>
+  <div class="govuk-width-container">
+    {% include "includes/phase_banner_beta.html" %}
+    {% include "includes/chs-user-menu-logged-in.html" %}
 
-<main id="content" role="main" class="two-column-accounts">
-{% include "includes/phase_banner_beta.html" %}
+    {{ govukBackLink({
+      text: "Back",
+      href: "javascript:history.back()"
+    }) }}
 
-<nav class="content" role="navigation">
-  <ul id="navigation" class="mobile-hidden">
-    <li class="user" id="signed-in-user">jsmith@testcompany.co.uk: </li>
-    <li><a href="javascript:void(0)">Your details</a></li>
-    <li><a href="javascript:void(0)" id="recent_filings">Your filings</a></li>
-    <li><a href="javascript:void(0)" id="">Companies you follow</a></li>
-    <li><a href="javascript:void(0)" id="user-signout">Sign out</a></li>
-  </ul>
-</nav>
+    {% include 'includes/error.html' %}
 
+    <main class="govuk-main-wrapper" id="main-content" role="main">
 
+      <div class="govuk-grid-row">
+        <div class="govuk-grid-column-two-thirds">
 
+          <form action="/" method="get" class="form">
 
-<a id="back" class="link-back" href="javascript:history.back()">Back</a>
-{% include 'includes/error.html' %}
+            {{ govukTextarea({
+              name: "small-full-profit-and-loss-account-note-note",
+              id: "small-full-profit-and-loss-account-note-note",
+              value: data['small-full-profit-and-loss-account-note-note'],
+                label: {
+                  text: "Enter your 'profit and loss account' note",
+                  classes: "govuk-label govuk-label--l"
+                }
+              }) }}
 
+            {{ govukButton({
+              text: "Save and continue"
+            }) }}
+          </form>
 
-  <div class="text">
-    <h1 class="govuk-heading-l"><span class="circle circle-step-large">2</span>
-      Profit and loss account
-      <span class="circle-subheading">Note</span>
-    </h1>
+          <!-- <p> <a href="javascript:void(0)" class="govuk-link">Sign out</a> </p>-->
 
+        </div>
+        <!--govuk-grid-row-->
+      </div>
+      <!--govuk-grid-column-two-thirds-->
 
+    </main>
+  </div>
+  <!---govuk-width-container-->
 
-    <div class="left-indent">
-        <h2 class="govuk-heading-m">Do your prepared accounts include a 'profit and loss account' note?</h2>
-        <details class="form-group">
-          <summary><span class="summary">What's this?</span></summary><span class="visuallyhidden">Fixed assets investments</span>
-          <div class="panel panel-border-narrow govuk-hint">
-            <p>Use this note to record any exceptional or unexpected activities that impacted your profit and loss account, or any information to support your profit and loss activities.</p>
-          </div>
-        </details>
-
-    <form action="/small-full/small-full-balance-sheet" method="get" class="form">
-          <fieldset class="inline" data-required="" data-error=" Please confirm if you want to include a 'profit and loss account' note">
-                  <legend class="visually-hidden">Do your prepared accounts include a 'profit and loss account' note?</legend>
-                  <div class="form-group">
-
-                  <label class="block-label selection-button-radio" for="profitandlossaccountnotenoteyes" data-target="profitandlossaccountnotenoteyes-reveal">
-                    <input id="profitandlossaccountnotenoteyes" name="profitandlossaccountnotenoteyn" value="Yes" aria-controls="profitandlossaccountnotenoteyes-reveal" type="radio">
-                    Yes
-                  </label>
-                  <label class="block-label selection-button-radio" for="profitandlossaccountnotenoteno">
-                    <input id="profitandlossaccountnotenoteno" name="profitandlossaccountnotenoteyn" value="No" type="radio">
-                    No
-                    </label>
-                  </div><!--form-group-->
-
-                </fieldset>
-
-
-
-            <div class="panel panel-border-narrow js-hidden" id="profitandlossaccountnotenoteyes-reveal">
-              <label for="textarea" class="govuk-heading-m">Enter your 'profit and loss account' note</label>
-              <textarea type="text" id="textarea" class="form-control" rows="10"></textarea>
-
-            </div><!--profitandlossaccountnotenoteyes-reveal-->
-
-
-
-          <div class="accounts-row-spacer">
-            <input type="submit" class="button" value="Save and continue" id="">
-          </div>
-        </form>
-      </div><!--left-indent-->
-    </div><!--text-->
-
-
-</main>
 {% endblock %}
