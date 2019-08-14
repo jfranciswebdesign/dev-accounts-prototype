@@ -634,6 +634,17 @@ module.exports = function ( router ) {
 		}
 	} );
 
+	// (CICs) Accounts - Do your prepared accounts include an 'Profit and loss account'?
+
+	router.get( '/small-full/small-full-profit-and-loss-account', function ( req, res ) {
+		var profitandlossaccountyesno = req.query.profitandlossaccountyesno;
+		if ( profitandlossaccountyesno == "no" ) {
+			res.redirect( "https://www.google.co.uk/" );
+		} else {
+			res.render( 'small-full/small-full-profit-and-loss-account' );
+		}
+	} );
+
 
 
 	//router.get( '/accounts/march-accounts-start-page-small-full', function ( req, res ) {
