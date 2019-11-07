@@ -249,7 +249,7 @@ $( document )
 				.val() !== 'undefined' ) { // If this thing is NOT undefined (as in it DOES exist) then output it as a variable
 				var creditorsamountsfallingduewithinoneyearcurrent = $( '#creditors-amounts-falling-due-within-one-year-current' )
 					.val();
-				total += +creditorsamountsfallingduewithinoneyearcurrent // Total (0) plus whatever value is in nere
+				total += -creditorsamountsfallingduewithinoneyearcurrent // Total (0) plus whatever value is in nere
 			}
 			$( '#total-assets-less-current-liabilities-current' )
 				.val( total );
@@ -315,7 +315,7 @@ $( document )
 				.val() !== 'undefined' ) { // If this thing is NOT undefined (as in it DOES exist) then output it as a variable
 				var creditorsamountsfallingduewithinoneyearprevious = $( '#creditors-amounts-falling-due-within-one-year-previous' )
 					.val();
-				total += +creditorsamountsfallingduewithinoneyearprevious // Total (0) plus whatever value is in nere
+				total += -creditorsamountsfallingduewithinoneyearprevious // Total (0) plus whatever value is in nere
 			}
 			$( '#total-assets-less-current-liabilities-previous' )
 				.val( total );
